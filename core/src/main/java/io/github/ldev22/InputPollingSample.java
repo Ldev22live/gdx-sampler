@@ -12,9 +12,11 @@ import com.badlogic.gdx.utils.Logger;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-/** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
+/**
+ * {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms.
+ */
 public class InputPollingSample extends ApplicationAdapter {
-    public static Logger log =  new Logger("GDX DEBUG", Logger.DEBUG);
+    public static Logger log = new Logger("GDX DEBUG", Logger.DEBUG);
     private OrthographicCamera camera;
     private Viewport viewport;
     private SpriteBatch batch;
@@ -28,7 +30,7 @@ public class InputPollingSample extends ApplicationAdapter {
 
         camera = new OrthographicCamera();
         viewport = new FitViewport(1080f, 720f, camera);
-
+        font = new BitmapFont(Gdx.files.internal("fonts/oswald-32.fnt"));
         batch = new SpriteBatch();
         font = new BitmapFont();
     }
@@ -52,7 +54,7 @@ public class InputPollingSample extends ApplicationAdapter {
         batch.end();
     }
 
-    private void draw(){
+    private void draw() {
         //mouse or touch x and y points
         int mouseX = Gdx.input.getX();
         int mouseY = Gdx.input.getY();
@@ -60,14 +62,14 @@ public class InputPollingSample extends ApplicationAdapter {
         boolean leftPressed = Gdx.input.isButtonPressed(Input.Buttons.LEFT);
         boolean rightPressed = Gdx.input.isButtonPressed(Input.Buttons.RIGHT);
         String mouseButton = "";
-        if(leftPressed){
+        if (leftPressed) {
             mouseButton = "Left mouse button pressed";
             log.debug(mouseButton);
-        }else{
+        } else {
             mouseButton = "No button pressed";
         }
 
-        if(rightPressed){
+        if (rightPressed) {
             mouseButton = "Right mouse button pressed";
             log.debug(mouseButton);
         }
@@ -76,16 +78,16 @@ public class InputPollingSample extends ApplicationAdapter {
         boolean sPressed = Gdx.input.isKeyPressed(Input.Keys.S);
 
         String keyPressed = "";
-        if(wPressed){
+        if (wPressed) {
             keyPressed = "W has been pressed";
-        }else if(sPressed){
+        } else if (sPressed) {
             keyPressed = "S has been pressed";
-        }else{
+        } else {
             keyPressed = "Awaiting keyboard input";
         }
-        font.draw(batch, "Mouse X = " + mouseX + "Mouse Y = " + mouseY, 20f, 720f-20f);
-        font.draw(batch, mouseButton, 20f, 720f-60f);
-        font.draw(batch, keyPressed, 20f, 720f-100f);
+        font.draw(batch, "Mouse X = " + mouseX + "Mouse Y = " + mouseY, 20f, 720f - 20f);
+        font.draw(batch, mouseButton, 20f, 720f - 60f);
+        font.draw(batch, keyPressed, 20f, 720f - 100f);
     }
 
     @Override

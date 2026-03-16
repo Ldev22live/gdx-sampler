@@ -17,6 +17,8 @@ apply plugin: "war"
 // This is relative to the html/ folder.
 var outputPath = "build/dist/"
 
+sourceSets.main.resources.srcDirs += [ rootProject.file('assets').path ]
+
 gwt {
   gwtVersion = "$gwtFrameworkVersion" // Should match the version used for building the GWT backend. See gradle.properties.
   maxHeapSize = '1G' // Default 256m is not enough for the GWT compiler. GWT is HUNGRY.
@@ -27,7 +29,6 @@ gwt {
     project(":core").file('src/main/java'),
     files(project(':core').sourceSets.main.allJava.srcDirs),
     files("../core/build/generated/sources/annotationProcessor/java/main"),
-    files(sourceSets.main.output.resourcesDir),
 
   )
   modules = ["io.github.ldev22.GdxDefinition"]

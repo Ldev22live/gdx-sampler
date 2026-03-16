@@ -17,7 +17,7 @@ public class InputListeningSample extends ApplicationAdapter implements InputPro
     private Viewport viewport;
     private SpriteBatch batch;
     private BitmapFont font;
-    private int maxMessageCount = 15;
+    private final int maxMessageCount = 15;
     private Array<String> messages;
 
     @Override
@@ -31,6 +31,9 @@ public class InputListeningSample extends ApplicationAdapter implements InputPro
 
         batch = new SpriteBatch();
         font = new BitmapFont();
+        messages = new Array<>();
+
+        Gdx.input.setInputProcessor(this);
     }
 
     @Override
@@ -54,7 +57,9 @@ public class InputListeningSample extends ApplicationAdapter implements InputPro
 
     private void draw(){
         //mouse or touch x and y points
-
+        for(int i = 0; i < messages.size; i++){
+            font.draw(batch, messages.get(i), 20f,720f-40f * (i + 1));
+        }
     }
 
     @Override
@@ -65,17 +70,26 @@ public class InputListeningSample extends ApplicationAdapter implements InputPro
 
     @Override
     public boolean keyDown(int keycode) {
-        return false;
+        String message = "keyDown screen X" + keycode;
+        log.debug(message);
+        addMessage(message);
+        return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        return false;
+        String message = "keyUp screen X" + keycode;
+        log.debug(message);
+        addMessage(message);
+        return true;
     }
 
     @Override
     public boolean keyTyped(char character) {
-        return false;
+        String message = "keyTyped " + character;
+        log.debug(message);
+        addMessage(message);
+        return true;
     }
 
     @Override
@@ -83,9 +97,18 @@ public class InputListeningSample extends ApplicationAdapter implements InputPro
         return false;
     }
 
+    private void addMessage(String message){
+        messages.add(message);
+        if(messages.size > maxMessageCount){
+            messages.removeIndex(0);
+        }
+    }
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        return false;
+        String message = "touchUp screen X" + screenX + "screen Y" + screenY;
+        log.debug(message);
+        addMessage(message);
+        return true;
     }
 
     @Override
@@ -95,16 +118,25 @@ public class InputListeningSample extends ApplicationAdapter implements InputPro
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        return false;
+        String message = "touchdragged screen X" + screenX + "touchdragged Y" + screenY;
+        log.debug(message);
+        addMessage(message);
+        return true;
     }
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
-        return false;
+        String message = "mouseMoved screen X" + screenX + "mouseMoved Y" + screenY;
+        log.debug(message);
+        addMessage(message);
+        return true;
     }
 
     @Override
     public boolean scrolled(float amountX, float amountY) {
-        return false;
+        String message = "scrolled screen X" + amountX + "scrolled Y" + amountY;
+        log.debug(message);
+        addMessage(message);
+        return true;
     }
 }
