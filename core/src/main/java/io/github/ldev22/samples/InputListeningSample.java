@@ -1,6 +1,7 @@
-package io.github.ldev22;
+package io.github.ldev22.samples;
 
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -9,9 +10,11 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Logger;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import io.github.ldev22.common.SampleBase;
+import io.github.ldev22.utils.GdxGraphics;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class InputListeningSample extends ApplicationAdapter implements InputProcessor {
+public class InputListeningSample extends SampleBase {
     public static Logger log =  new Logger("GDX DEBUG", Logger.DEBUG);
     private OrthographicCamera camera;
     private Viewport viewport;
@@ -23,7 +26,7 @@ public class InputListeningSample extends ApplicationAdapter implements InputPro
     @Override
     public void create() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
-
+        GdxGraphics.clearScreen(Color.BLACK);
         log.debug("create()");
 
         camera = new OrthographicCamera();

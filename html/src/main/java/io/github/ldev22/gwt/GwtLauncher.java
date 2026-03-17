@@ -3,7 +3,7 @@ package io.github.ldev22.gwt;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import io.github.ldev22.Main;
+import io.github.ldev22.samples.Main;
 
 /** Launches the GWT application. */
 public class GwtLauncher extends GwtApplication {

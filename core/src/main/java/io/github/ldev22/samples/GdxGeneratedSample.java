@@ -1,12 +1,13 @@
-package io.github.ldev22;
+package io.github.ldev22.samples;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import io.github.ldev22.common.SampleBase;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class Main extends ApplicationAdapter {
+public class GdxGeneratedSample extends SampleBase {
     private SpriteBatch batch;
     private Texture image;
 

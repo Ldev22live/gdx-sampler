@@ -2,8 +2,7 @@ package io.github.ldev22.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import io.github.ldev22.InputListeningSample;
-import io.github.ldev22.MultiplexerSample;
+import io.github.ldev22.samples.MultiplexerSample;
 
 public class DesktopLauncherMultiplexerSample {
 

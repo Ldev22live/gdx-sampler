@@ -1,11 +1,11 @@
-package io.github.ldev22;
+package io.github.ldev22.samples;
 
 import com.badlogic.gdx.*;
-import com.badlogic.gdx.input.NativeInputConfiguration;
 import com.badlogic.gdx.utils.Logger;
+import io.github.ldev22.common.SampleBase;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class MultiplexerSample extends ApplicationAdapter {
+public class MultiplexerSample extends SampleBase {
     public static Logger log =  new Logger("GDX DEBUG", Logger.DEBUG);
 
     @Override
@@ -36,7 +36,7 @@ public class MultiplexerSample extends ApplicationAdapter {
 
             @Override
             public boolean keyUp(int keycode) {
-                log.debug("Second key up keycode = " + keycode);
+                log.debug("Second key up keycode = /" + keycode);
                 return false;
             }
         };
@@ -46,4 +46,6 @@ public class MultiplexerSample extends ApplicationAdapter {
 
         Gdx.input.setInputProcessor(multiplexer);
     }
+
+
 }

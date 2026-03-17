@@ -1,15 +1,13 @@
-package io.github.ldev22;
+package io.github.ldev22.samples;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Logger;
-import com.badlogic.gdx.utils.ScreenUtils;
+import io.github.ldev22.common.SampleBase;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class ModuleInfoSample extends ApplicationAdapter {
+public class ModuleInfoSample extends SampleBase {
     public static Logger log =  new Logger("GDX DEBUG", Logger.DEBUG);
 
     @Override

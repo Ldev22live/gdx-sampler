@@ -1,21 +1,26 @@
-package io.github.ldev22;
+package io.github.ldev22.samples;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Logger;
+import com.badlogic.gdx.utils.reflect.ClassReflection;
+import com.badlogic.gdx.utils.reflect.Field;
+import com.badlogic.gdx.utils.reflect.Method;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import io.github.ldev22.common.SampleBase;
+import io.github.ldev22.utils.GdxGraphics;
 
 /**
  * {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms.
  */
-public class InputPollingSample extends ApplicationAdapter {
+public class ReflectionSample extends SampleBase {
     public static Logger log = new Logger("GDX DEBUG", Logger.DEBUG);
     private OrthographicCamera camera;
     private Viewport viewport;
@@ -25,7 +30,7 @@ public class InputPollingSample extends ApplicationAdapter {
     @Override
     public void create() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
-
+        GdxGraphics.clearScreen(Color.BLACK);
         log.debug("create()");
 
         camera = new OrthographicCamera();
@@ -33,6 +38,7 @@ public class InputPollingSample extends ApplicationAdapter {
         font = new BitmapFont(Gdx.files.internal("fonts/oswald-32.fnt"));
         batch = new SpriteBatch();
         font = new BitmapFont();
+        debugReflection(ReflectionSample.class);
     }
 
     @Override
@@ -42,8 +48,8 @@ public class InputPollingSample extends ApplicationAdapter {
 
     @Override
     public void render() {
-        Gdx.gl.glClearColor(0f, 0f, 1f, 1f);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        //clears screen use DRY
+
 
         batch.setProjectionMatrix(camera.combined);
 
@@ -94,5 +100,22 @@ public class InputPollingSample extends ApplicationAdapter {
     public void dispose() {
         batch.dispose();
         font.dispose();
+    }
+
+    private static <T> void debugReflection(Class<ReflectionSample> reflectionSampleClass) {
+        // Implementation here (currently empty)
+        Field[] fields = ClassReflection.getDeclaredFields(reflectionSampleClass);
+        Method[] methods = ClassReflection.getDeclaredMethods(reflectionSampleClass);
+        log.debug("Field count = " + fields.length);
+
+        for(Field field : fields){
+            log.debug("Field name = " + field.getName() + " Field Type = " + field.getType());
+        }
+
+        log.debug("Method count = " + methods.length);
+        for(Method method: methods){
+            log.debug("method name = " + method.getName() + " param count = " + method.getParameterTypes().length);
+        }
+
     }
 }

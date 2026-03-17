@@ -2,9 +2,9 @@ package io.github.ldev22.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import io.github.ldev22.samples.InputListeningSample;
+import io.github.ldev22.samples.ReflectionSample;
 
-public class DesktopLauncherInputListener {
+public class DesktopLauncherReflectionSample {
 
     public static void main(String[] args) {
         if (StartupHelper.startNewJvmIfRequired()) return; // This handles macOS support and helps on Windows.
@@ -12,7 +12,7 @@ public class DesktopLauncherInputListener {
     }
 
     private static Lwjgl3Application createApplication() {
-        return new Lwjgl3Application(new InputListeningSample(), getDefaultConfiguration());
+        return new Lwjgl3Application(new ReflectionSample(), getDefaultConfiguration());
     }
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {

@@ -2,8 +2,7 @@ package io.github.ldev22.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import io.github.ldev22.InputPollingSample;
-import io.github.ldev22.ModuleInfoSample;
+import io.github.ldev22.samples.InputPollingSample;
 
 public class DesktopLauncherInputPolling {
 
