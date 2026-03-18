@@ -15,7 +15,8 @@ public class SampleInfos {
         new SampleInfo(ReflectionSample.class),
         new SampleInfo(OrthographicCameraSample.class),
         new SampleInfo((ViewportSample.class)),
-        new SampleInfo(SpriteBatchSample.class)
+        new SampleInfo(SpriteBatchSample.class),
+        new SampleInfo(ShapeRendererSample.class)
     );
 
     public static String[] getSamplesNames() {

@@ -17,12 +17,6 @@ public class GdxGraphics {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     }
 
-    public static void use(Runnable action) {
-        begin();
-        action.run();
-        end();
-    }
-
     public static void use(Batch batch, Runnable action) {
         batch.begin();
         action.run();
